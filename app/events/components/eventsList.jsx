@@ -2,8 +2,6 @@ import { getAllEvents, getEventImageUrl} from "@/lib/sanity/services/eventServic
 import Link from "next/link";
 import Image from "next/image";
 
-export const revalidate = 10; // ISR every minute
-
 
 export default async function EventList() {
     const events = await getAllEvents();

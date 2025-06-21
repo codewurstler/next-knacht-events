@@ -1,8 +1,6 @@
-
-
-import {client} from "@/lib/sanity/client";
-import {getAllEvents} from "@/lib/sanity/services/eventService";
 import EventList from "@/app/events/components/eventsList";
+
+export const revalidate = 10;
 
 export default async function IndexPage() {
     return (
