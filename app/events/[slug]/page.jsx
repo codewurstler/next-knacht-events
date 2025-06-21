@@ -2,7 +2,7 @@ import Link from "next/link";
 import { PortableText } from "next-sanity";
 import { getEventBySlug, getEventImageUrl } from "@/lib/sanity/services/eventService";
 
-export const revalidate = 60
+export const revalidate = 10; // ISR every 10 minutes
 
 export default async function EventPage({ params }) {
     const { slug } = await params;

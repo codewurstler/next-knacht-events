@@ -2,11 +2,11 @@ import { getAllEvents, getEventImageUrl} from "@/lib/sanity/services/eventServic
 import Link from "next/link";
 import Image from "next/image";
 
+export const revalidate = 10; // ISR every minute
+
 
 export default async function EventList() {
     const events = await getAllEvents();
-
-    console.log(events);
 
     if (events.length === 0) {
         return <p>Wir haben gerade keine Events geplant!</p>;
@@ -28,7 +28,7 @@ export default async function EventList() {
 
                     <div className="card-body items-center text-center">
                         <h2 className="card-title">{event.title}</h2>
-                        <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+                        <p>{event.startDateTime}</p>
                         <div className="card-actions">
                             <Link className="btn btn-primary" href={`/events/${event.slug.current}`}>Zum Event</Link>
                         </div>
