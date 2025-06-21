@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { PortableText } from "next-sanity";
 import { getEventBySlug, getEventImageUrl } from "@/lib/sanity/services/eventService";
+import Image from "next/image";
 
-export const revalidate = 10; // ISR every 10 minutes
+export const revalidate = 60; // ISR every minute
 
 export default async function EventPage({ params }) {
     const { slug } = await params;
@@ -16,7 +17,8 @@ export default async function EventPage({ params }) {
             </Link>
 
             {eventImageUrl && (
-                <img
+                <Image
+                    priority={true}
                     src={eventImageUrl}
                     alt={event.title}
                     className="aspect-video rounded-xl"

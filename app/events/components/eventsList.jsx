@@ -12,10 +12,12 @@ export default async function EventList() {
 
     return (
         <div className="2xl:bg-accent">
-            {events.map((event) => (
+            {events.map((event, index) => (
                 <div className="card bg-base-100 w-96 shadow-sm" key={event._id}>
+                    <h1>{index}</h1>
                     <figure className="px-10 pt-10">
                         <Image
+                            priority={index < 5}
                             src={getEventImageUrl(event.image)}
                             alt="My Image"
                             width={500}
